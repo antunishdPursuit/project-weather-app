@@ -1,0 +1,55 @@
+/* GRid for the header with form info */
+header {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content:  center;
+    background-color: rgb(57, 193, 238);
+    border: 1px solid rgb(240, 9, 28);
+}
+
+#weatherCity {
+    padding: 10px 10px ;
+    text-align: center;
+}
+/* Grid boxes for the celuous calculato, City weather info, and previous searches */
+.mainPage {
+    display: grid;
+    grid-template-columns: .3fr 1.1fr .3fr;
+    text-align: center;
+    justify-content: center;
+}
+/* City info */
+#cityInfo {
+    border: 2px solid teal;
+    background-color: antiquewhite;
+}
+/* CSS to make something invixible */
+.hidden {
+    display: none;
+}
+
+/* grid boxes for the temputures */
+.tempBoxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* all li elements will not have dots */
+.lists {
+list-style-type: none;
+}
+#list {
+    padding-inline-start: 25px;
+}
+/* all stronf elemtns have an underline */
+.underline {
+    text-decoration-line: underline;
+}
+
+li {
+    font-size: small;
+}
+.tempsList {
+    padding-left: 0;
+    text-align: left;
+}

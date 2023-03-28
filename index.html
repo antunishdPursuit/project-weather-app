@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <form id = "weatherCity">
+            <h1>Weather App</h1> 
+            <input id="city" type="data" placeholder="Enter a City">
+            <button id = "test" type="submit">Get Weather</button>
+        </form>
+    </header>
+    <div class = "mainPage">
+    <aside class = "mainBoxes"></aside>
+    <main class = "mainBoxes">
+        <article id="cityInfo" >
+            <h2> <p id = "cityName"><strong> Choose a location to view the weather</strong> </p></h2>
+        
+        </article>
+        <aside id="temps"class="hidden">
+            <article class="tempertures" id ="today">
+                <ul class = "tempsList">
+                    <li class = "days lists"></li>
+                    <li class = "avg lists"></li>
+                    <li class = "max lists"></li>
+                    <li class = "min lists"></li>
+                </ul>
+            </article>
+            <article  class="tempertures" id ="tomorrow">
+                <ul class = "tempsList">
+                    <li class = "days lists"></li>
+                    <li class = "avg lists"></li>
+                    <li class = "max lists"></li>
+                    <li class = "min lists"></li>
+                </ul>
+            </article>
+            <article  class="tempertures" id ="dayAfterTomorrow">
+                <ul class = "tempsList">
+                    <li class = "days lists"></li>
+                    <li class = "avg lists"></li>
+                    <li class = "max lists"></li>
+                    <li class = "min lists"></li>
+                </ul>
+            </article>
+        </aside>
+    </main>
+    <aside class = "mainBoxes">
+        <section>
+            <h4><strong>Previous Searches</strong></h4>
+            <p id="removed">No previous searches</p>
+            <ul id="list">
+            </ul>
+        </section>
+    </aside>
+    </div>
+</body>
+</html>
