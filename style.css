@@ -5,6 +5,7 @@ header {
     justify-content:  center;
     background-color: rgb(57, 193, 238);
     border: 1px solid rgb(240, 9, 28);
+    margin-bottom: 20px;
 }
 
 #weatherCity {
