@@ -16,35 +16,31 @@ let cityInfo = document.querySelector("#cityInfo")
 // Creating the Date for the weather 
 let dates = new Date()
 let test1 = new Date()
-//
+// selecting the aside tag with the id temps
+let temps = document.querySelector("#temps");
+// creating an array to store the cities that have been searched
 let cityArr = []
 // the event listener submit that is found within the form tag which also calls the API
 weatherCity.addEventListener('submit', (event) => {
     event.preventDefault()
     // take the value form the input tag within the form tag and places the input within the api link as a string literal
     let city = event.target.city.value
-    // if the value is empty then the API key will be called 
-    cityArr.push(city)
     if (city === "") {
-        cityName.textContent = "Please enter a City"
+        cityInfo.innerHTML = "<h1>Please enter a City</h1>";
     } else {
-                // uses the input value for the API
-                let weatherData = `https://wttr.in/${city}?format=j1`
-                fetch(weatherData)
-                .then((response) => response.json())
-                .then((json) => {
-                    // the function which uses the API data
-                    test(json,city,cityArr)
-                })
-                .catch((error) => {
-                //   console.log(error);
-            
-                });
+        // uses the input value for the API
+        let weatherData = `https://wttr.in/${city}?format=j1`
+        fetch(weatherData)
+        .then((response) => response.json())
+        .then((json) => {
+            // the function which uses the API data
+            test(json,city,cityArr)
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
-
-    
     event.target.city.value = ""
-
 })
 
 const test = (json,city, cityArr) => {
@@ -55,6 +51,7 @@ const test = (json,city, cityArr) => {
         let areaDate = json.nearest_area[0]
         let currentTempData = json.current_condition[0]
         let area = areaDate.areaName[0].value
+        cityInfo.innerHTML = ""; // Clear previous content
         areap.innerHTML = `<strong>Area:</strong> ${area}`
         cityInfo.append(areap)
         let region = areaDate.region[0].value
@@ -66,13 +63,10 @@ const test = (json,city, cityArr) => {
         let currently = currentTempData.FeelsLikeF + '°F'
         currentlyp.innerHTML = `<strong>Currently:</strong> Feels like ${currently}`
         cityInfo.append(currentlyp)
-        // adding pevious serches to a list
-        // console.log(cityArr)
-        // console.log(cityArr.indexOf(city))
-        // console.log(cityArr.lastIndexOf(city))
-        // if(cityArr.indexOf(city) === cityArr.lastIndexOf(city)){
+        if(!cityArr.includes(city)){
             previousSearches(city,currently)
-        // }
+            cityArr.push(city)
+        }
 
 
         // Adding temps for the today, next day, and next day
@@ -116,20 +110,17 @@ const test = (json,city, cityArr) => {
 }
 
 const previousSearches = (city, currently) => {
-
-        // selecting the aside tag which has all the li tags within in it 
-        excuted = true
-        document.querySelector("#removed").className = "hidden"
-        document.querySelector("#temps").className = "tempBoxes"
-        let searchList = document.querySelector("#list")
-        let previousSearches = document.createElement("li")
-        previousSearches.innerHTML = `<a id = "previousCity" href="#">${city}</a> - ${currently}`
-        previousSearches.className = "searchList"
-        // console.log(previousSearches.textContent)
-        searchList.append(previousSearches)
+    // selecting the aside tag which has all the li tags within in it 
+    excuted = true
+    document.querySelector("#removed").className = "hidden"
+    document.querySelector("#temps").className = "tempBoxes"
+    let searchList = document.querySelector("#list")
+    let previousSearches = document.createElement("li")
+    previousSearches.innerHTML = `<a class = "previousCity" href="#">${city}</a> - ${currently}`
+    previousSearches.className = "searchList"
+    searchList.append(previousSearches)
     
 }
-
 const test2 = (json,city) => {
     // the first h1 tag becomes the input value
     cityName.textContent = city
@@ -169,7 +160,4 @@ const test2 = (json,city) => {
         let min = json.weather[index].mintempF
         mines[index].innerHTML = `<strong class ="underline">Min Temperature:</strong> ${min} °F`
         }
-        //
-
-    
 }
