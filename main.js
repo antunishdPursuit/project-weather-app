@@ -33,6 +33,8 @@ let fahrenheit = true
 // Will hold the json of compeleted APi call
 let cityWeatherObjects = {}
 
+// Count the event listener
+let countOfSubmit = 0
 // Creating the Date for the weather 
 let dates = new Date();
 function formatDate(date){
@@ -49,6 +51,7 @@ function capitalizeWords(str) {
 // the event listener submit that is found within the form tag which also calls the API
 weatherCity.addEventListener('submit', (event) => {
     event.preventDefault()
+    countOfSubmit++
     let city = event.target.city.value.trim()
     let capitalizeCity = capitalizeWords(city)
     // Change text if value is empty otherwise call the API
@@ -92,13 +95,15 @@ const cityWeather = (json, city) => {
     let region = areaDate.region[0].value
     let country = areaDate.country[0].value
     let currentTemp = `${currentTempData.FeelsLikeF} °F`
-
+    let currentWeather = json.current_condition[0].weatherDesc[0].value
+    let weatherCode = json.current_condition[0].weatherCode
+    changeBackground(weatherCode)
     //Creating the box of Weather Info  
-    cityName.innerHTML = `<strong>${city}</strong> `
+    cityName.innerHTML = `<strong>${city}</strong>`
     areap.innerHTML = `<strong>Area:</strong> ${area}`
     regionp.innerHTML = `<strong>Region:</strong> ${region}`
     countryp.innerHTML = `${country}`
-    currentlyp.innerHTML = `Feels like ${currentTemp}`
+    currentlyp.innerHTML = `Feels like ${currentTemp} is  ${currentWeather}`
     degreeButton.classList.add("degreeCToF")
     degreeButton.innerHTML = `${fahrenheit ? "°C?" : "°F?"}`
 
@@ -112,16 +117,33 @@ const cityWeather = (json, city) => {
         let avg = json.weather[day].avgtempF
         let max = json.weather[day].maxtempF
         let min = json.weather[day].mintempF
-        dates.setDate(dates.getDate() + day);
-        let formattedDate = formatDate(dates)
-        // 3 days worth of  data
-        days[day].innerHTML = `<strong>${threeDays[day]}:</strong> ${formattedDate}`
+        if (countOfSubmit <= 1){
+            dates.setDate(dates.getDate() + day);
+            let formattedDate = formatDate(dates)
+            // 3 days worth of  data
+            days[day].innerHTML = `<strong>${threeDays[day]}:</strong> ${formattedDate}`
+        }
         avgs[day].innerHTML = `<strong>Avg Temp:</strong> ${avg} °F`
         maxes[day].innerHTML = `<strong>Max Temp:</strong> ${max} °F`
         mines[day].innerHTML = `<strong>Min Temp:</strong> ${min} °F`
     }
 }
 
+function changeBackground(weatherCode) {
+    fetch('icons.json')
+    .then(response => response.json())
+    .then(data => {
+        const weatherIcons = data;
+        // Select all cloud elements
+        let clouds = document.querySelectorAll(".cloud");
+        // Update background image for each cloud
+        clouds.forEach(cloud => {
+            cloud.style.backgroundImage = `${weatherIcons[weatherCode]}`; // Path to new image
+        });
+    })
+    .catch(error => console.error("Error loading JSON:", error));
+
+}
 // adds all the cities searched onto the web page
 const previousSearches = (city, currently) => {
     // selecting the aside tag which has all the li tags within in it 
@@ -196,12 +218,15 @@ const cityWeatherObj = (json, city) => {
     let region = areaDate.region[0].value
     let country = areaDate.country[0].value
     let currentTemp = fahrenheit ? `${currentTempData.FeelsLikeF} °F` : `${currentTempData.FeelsLikeC} °C`;
+    let currentWeather = json.current_condition[0].weatherDesc[0].value
+    let weatherCode = json.current_condition[0].weatherCode
+    changeBackground(weatherCode)
     //Creating the box of Weather Info  
-    cityName.innerHTML = `<strong>${city}</strong> `
+    cityName.innerHTML = `<strong>${city}</strong>`
     areap.innerHTML = `<strong>Area:</strong> ${area}`
     regionp.innerHTML = `<strong>Region:</strong> ${region}`
     countryp.innerHTML = `${country}`
-    currentlyp.innerHTML = `Feels like ${currentTemp}`
+    currentlyp.innerHTML = `Feels like ${currentTemp} is ${currentWeather}`
     degreeButton.classList.add("degreeCToF")
     degreeButton.innerHTML = `${fahrenheit ? "°C?" : "°F?"}`
     // Adding the created HTML to the DOM

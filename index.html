@@ -5,20 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-
-    <!-- Preload CSS for faster initial styling, then load normally -->
     <link id="main-stylesheet" rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
-
-    <!-- Deferred JavaScript for improved load performance -->
-    <script defer src="main.js"></script>
-
+    <script defer type="module" src="main.js"></script>
     <title>City Weather Info</title>
 </head>
 <body>
     <header>
         <form id="weatherCity">
-            <!-- <h1 class="appName">City Weather</h1>  -->
             <input id="city" type="text" placeholder="Enter a City">
             <button id="weather_button" type="submit">Get Weather</button>
         </form>
@@ -92,6 +86,7 @@
             </a>
         </div>
         <p>Weather App © 2024</p>
+        <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Sun icons created by Freepik - Flaticon</a>
     </footer>
 </body>
 </html>
