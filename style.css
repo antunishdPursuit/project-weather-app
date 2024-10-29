@@ -7,7 +7,7 @@ body, html {
 
 }
 
-/* -------------------- Header ------------------------ */
+/* ------------------------ Header ------------------------ */
 header {
     display: grid;
     position: relative;
@@ -53,7 +53,7 @@ header {
 }
 
 /* Header Button styling */
-#weather_button {
+.degreeCToF, #weather_button {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -71,7 +71,7 @@ header {
 }
 
 
-#weather_button:hover {
+.degreeCToF:hover, #weather_button:hover {
     transform: scale(1.05);
     background: linear-gradient(to bottom, #1e90ff, #4682b4);
     box-shadow: 0 12px 20px rgba(0, 150, 255, 0.4);
@@ -105,7 +105,7 @@ header {
     font-size: 1.5em;
 }
 
- /* ------------------- Cloud styling----------------*/
+ /* ------------------------ Cloud styling ------------------------ */
 .cloud-container {
     position: absolute; 
     top: 0;
@@ -137,7 +137,7 @@ header {
     100% { transform: translateX(150vw); }
 }
 
-/* --------------------- Main content ----------------*/
+/* ------------------------ Main content ------------------------ */
 .mainPage {
     display: grid;
     position: relative;
@@ -150,7 +150,7 @@ header {
 
 }
 
-/* ---------------- Weather City Main ------------------- */
+/* ------------------------ Weather City Main ------------------------ */
 #cityInfo {
     position: relative;
     overflow: hidden;
@@ -208,7 +208,7 @@ header {
 #cityInfo p:nth-child(4)::before { content: '🌎'; } 
 #cityInfo p:nth-child(5)::before { content: '🌡️'; } 
 
-/* ----------------- Temperature styling ---------------- */
+/* ------------------------ Temperature styling ------------------------ */
 #temps {
     flex-wrap: wrap;
     justify-content: center;
@@ -274,7 +274,7 @@ header {
     background: linear-gradient(to bottom, #ffecd2, #fcb69f);
 }
 
-/* -------------- Previous searches styling ------------- */
+/* ------------------------ Previous searches styling ------------------------ */
 section {
     text-align: center;
     margin: 20px auto;
@@ -340,7 +340,7 @@ section h4 {
     font-size: 1.2em;
 }
 
-/* ------ Footer styling ------------- */
+/* ------------------------ Footer styling ------------------------ */
 .weather-footer {
     position: fixed;
     text-align: center;
@@ -388,7 +388,7 @@ section h4 {
     font-size: 1.2em;
 }
 
-/* ----------- Media Queries ---------- */
+/* ------------------------ Media Queries ------------------------ */
 @media (max-width: 768px) {
     #temps {
         gap: 10px;
