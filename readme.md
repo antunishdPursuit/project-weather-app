@@ -8,6 +8,8 @@ Through JavaScript functions and event listeners, we handled asynchronous API re
 Additionally, we explored CSS animations to create a lively, responsive design featuring animated clouds and gradient-based weather themes. This project showcases advanced knowledge in full-stack development, object-oriented JavaScript, and responsive, user-centric design – skills highly relevant to building dynamic, data-driven applications in real-world scenarios.
 
 ## How to use
+Works on Chrome, not supported on other browsers
+
 Simply type a city name into the search bar and press "Get Weather." The website will display the city's current temperature, weather conditions, and a 3-day forecast. 
 
 You can click on previous city names in the search history to view their weather instantly. 
