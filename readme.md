@@ -1,28 +1,49 @@
 # A City's Weather
 
-A comprehensive, interactive weather web application using JavaScript, HTML, and CSS which demonstrates proficiency in web development, API integration, and dynamic DOM manipulation.
+**A City's Weather** is a comprehensive and interactive weather web application built with **JavaScript, HTML, and CSS**. This project demonstrates proficiency in web development, API integration, and dynamic DOM manipulation.
 
-Utilized the wttr.in weather API and enhanced its data handling with JSON structures to efficiently map weather codes to icons, stored in an external icons.json file. The app dynamically updates based on user input, keeping track of search history, rendering current conditions with personalized icons, and converting between Fahrenheit and Celsius with a toggle button. 
+## Features
 
-Through JavaScript functions and event listeners, we handled asynchronous API requests, conditional rendering, and DOM updates, which included dynamically loading background images based on weather codes and implementing a counter to track user interactions. 
+1. **Real-Time Weather Search**:
+   - Simply type a city name into the search bar and press "Get Weather" to view the city's current temperature, weather conditions, and a 3-day forecast.
+   - The app dynamically updates based on user input, keeping a **search history** for easy access to previous locations.
 
-Additionally, we explored CSS animations to create a lively, responsive design featuring animated clouds and gradient-based weather themes. This project showcases advanced knowledge in full-stack development, object-oriented JavaScript, and responsive, user-centric design – skills highly relevant to building dynamic, data-driven applications in real-world scenarios.
+2. **Toggle Temperature Units**:
+   - Users can switch between Fahrenheit and Celsius by clicking the temperature toggle button next to the current weather display.
 
-## Details
-#### Works on Chrome, not supported on other browsers
+3. **Dynamic Weather Display**:
+   - **Custom Weather Icons**: The app utilizes the [wttr.in API](https://github.com/chubin/wttr.in) and enhances it by mapping weather codes to custom icons. These icons are stored in an external `icons.json` file for efficient handling and are displayed based on real-time weather data.
+   - **Background and Themes**: Dynamically changes the background and adjusts icon styling based on weather codes, creating an immersive experience that visually represents current conditions.
 
-Simply type a city name into the search bar and press "Get Weather." The website will display the city's current temperature, weather conditions, and a 3-day forecast. 
+4. **Interactive and Animated Design**:
+   - Includes **CSS animations** such as animated clouds and gradient-based weather themes for a lively, responsive design.
+   - A **user interaction counter** tracks interactions, adding a layer of user engagement tracking.
 
-You can click on previous city names in the search history to view their weather instantly. 
+## Project Structure and Data Handling
 
-Additionally, you can switch between Fahrenheit and Celsius by clicking the temperature toggle button next to the current weather display. 
+- **Asynchronous API Handling**: JavaScript functions and event listeners handle asynchronous requests to the `wttr.in` API, ensuring smooth data retrieval and updates.
+- **Conditional Rendering and DOM Updates**: Uses JavaScript to dynamically render weather data, icons, and backgrounds based on API responses and user interactions.
+- **Responsive and User-Centric Design**: Implemented with CSS animations and JavaScript, the app provides an interactive experience that adapts to different weather conditions.
 
-The background and icons dynamically adjust based on the weather for a more immersive experience.
+## Technologies Used
 
-### API
+- **JavaScript**: For API handling, dynamic data updates, and DOM manipulation.
+- **HTML & CSS**: For responsive structure, styling, and animation.
+- **API Integration**: Using the [wttr.in API](https://github.com/chubin/wttr.in) for real-time weather data.
+- **JSON Data**: External `icons.json` file used to map weather codes to icons, enhancing icon handling efficiency.
 
-[wttr.in API](https://github.com/chubin/wttr.in)
+## How to Use
 
-### Website
+1. **Enter a City**: Type a city name in the search bar and click "Get Weather" to retrieve weather data.
+2. **View Search History**: Click on any previous city name in the search history to instantly view its weather information.
+3. **Toggle Temperature Units**: Switch between Fahrenheit and Celsius by clicking the temperature toggle button.
+4. **Experience Dynamic Updates**: The background, icons, and animations adjust based on the current weather for an immersive experience.
 
-[A City's Weather](https://antunishdpursuit.github.io/project-weather-app/)
+## Compatibility
+
+- **Supported Browser**: Works on Chrome. Currently not supported on other browsers.
+
+## Live Demo
+
+Try the app here: [A City's Weather](https://antunishdpursuit.github.io/project-weather-app/)
+
