@@ -1,3 +1,5 @@
+// Getting main info box
+let mainBoxes = document.querySelector(".mainPage")
 // selectng the form tag 
 let weatherCity = document.querySelector("#weatherCity")
 
@@ -71,6 +73,7 @@ weatherCity.addEventListener('submit', (event) => {
         temps.style.display = "none"
     } else {
         let weatherData = `https://wttr.in/${capitalizeCity}?format=j1`
+        mainBoxes.style.opacity = '1';
         fetch(weatherData)
         .then((response) =>{
             if (!response.ok) {
@@ -88,7 +91,6 @@ weatherCity.addEventListener('submit', (event) => {
             } else {
                 previousSearches(capitalizeCity, json.current_condition[0].FeelsLikeC + " °C")
             }
-            
         })
         .catch((error) => {
             console.log("Error fetching City Weather Data: ", error)
@@ -116,7 +118,7 @@ const cityWeather = (json, city) => {
     currentlyp.innerHTML = `<strong style="margin: 0;">${currentWeather}&nbsp;</strong> Feels like <strong>&nbsp;${currentTemp}</strong> at <strong>&nbsp;${timeString}</strong>`;
 
     degreeButton.classList.add("degreeCToF")
-    degreeButton.innerHTML = `${fahrenheit ? "°C?" : "°F?"}`
+    degreeButton.innerHTML = `${fahrenheit ? "Change To °C?" : "Change To °F?"}`
 
     // Adding the created HTML to the DOM
     cityInfo.append(cityName, areap, regionp, countryp, currentlyp, degreeButton);
