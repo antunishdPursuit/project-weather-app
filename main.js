@@ -246,7 +246,7 @@ const cityWeatherObj = (json, city) => {
     countryp.innerHTML = `${country}`
     currentlyp.innerHTML = `<strong style="margin: 0;">${currentWeather}&nbsp;</strong> Feels like <strong>&nbsp;${currentTemp}</strong> at <strong>&nbsp;${timeString}</strong>`;
     degreeButton.classList.add("degreeCToF")
-    degreeButton.innerHTML = `${fahrenheit ? "°C?" : "°F?"}`
+    degreeButton.innerHTML = `${fahrenheit ? "Change To °C?" : "Change To °F?"}`
     // Adding the created HTML to the DOM
     cityInfo.append(cityName, areap, regionp, countryp, currentlyp, degreeButton);
 
